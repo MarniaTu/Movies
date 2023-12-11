@@ -58,4 +58,62 @@ public class FilmManagerTwoTest {
 
     }
 
+    @Test
+    public void shouldFindOneLastFilm() {
+
+        manager.setLimit(1);
+
+        manager.findLast();
+
+        Film[] expected = {film8};
+        Film[] actual = manager.findLast();
+
+        Assertions.assertArrayEquals(expected, actual);
+
+
+    }
+
+    @Test
+    public void shouldFindAllFilmsReversed() {
+
+        manager.setLimit(8);
+
+        manager.findLast();
+
+        Film[] expected = {film8, film7, film6, film5, film4, film3, film2, film1};
+        Film[] actual = manager.findLast();
+
+        Assertions.assertArrayEquals(expected, actual);
+
+
+    }
+
+    @Test
+    public void shouldFindSevenLastFilms() {
+
+        manager.setLimit(7);
+
+        manager.findLast();
+
+        Film[] expected = {film8, film7, film6, film5, film4, film3, film2};
+        Film[] actual = manager.findLast();
+
+        Assertions.assertArrayEquals(expected, actual);
+
+
+    }
+
+    @Test
+    public void shouldNotFindNineLastFilms() {
+
+        manager.setLimit(9);
+
+        manager.findLast();
+
+        Film[] expected = {film8, film7, film6, film5, film4, film3, film2, film1};
+        Film[] actual = manager.findLast();
+
+        Assertions.assertArrayEquals(expected, actual);
+
+    }
 }
